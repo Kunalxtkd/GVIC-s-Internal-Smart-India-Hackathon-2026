@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart India Hackathon 2026 Certificate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="page-container">
+            <!-- Certificate Image Preview Card -->
+            <div class="certificate-preview-card" onclick="openModal()">
+                <img src="certificate.jpg" alt="SIH Certificate" class="certificate-img" id="certImage">
+                <div class="zoom-overlay">
+                    <span>Click to expand</span>
+                </div>
+            </div>
+
+            <!-- Issuer Header -->
+            <div class="issuer-header">
+                <a href="https://www.gyanvihar.org" target="_blank" class="issuer-logo-title">
+                    <div class="logo-badge">G</div>
+                    <span class="issuer-name">Suresh Gyan Vihar University <span class="external-icon">↗</span></span>
+                </a>
+            </div>
+
+            <!-- Certificate Title -->
+            <h1 class="certificate-title">GVIC's Internal Smart India Hackathon 2026</h1>
+
+            <!-- Action Buttons and Selectors -->
+            <div class="action-buttons">
+                <!-- Format Selector Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-dropdown" onclick="toggleDropdown('formatDropdown')">
+                        <span id="selectedFormatText">Format: JPG</span>
+                        <span class="dropdown-arrow">▾</span>
+                    </button>
+                    <div id="formatDropdown" class="dropdown-content">
+                        <a href="#" onclick="selectFormat('jpg')">JPG</a>
+                        <a href="#" onclick="selectFormat('pdf')">PDF</a>
+                    </div>
+                </div>
+
+                <!-- Direct Download Button -->
+                <button class="btn btn-download" onclick="triggerDownload()">
+                    <span>Download</span>
+                </button>
+            </div>
+
+            <!-- Recipient Info -->
+            <div class="recipient-section">
+                <div class="recipient-avatar">KS</div>
+                <div class="recipient-details">
+                    <h2>Kunal Sharma</h2>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <p class="description-text">
+                For participating in GVIC's Internal Smart India Hackathon 2026 at Suresh Gyan Vihar University[cite: 2]. We celebrate your vision and wish you a journey of impact, growth and success[cite: 2].
+            </p>
+
+            <!-- Metadata -->
+            <div class="metadata-grid">
+                <div class="meta-item">
+                    <span class="meta-label">ISSUED ON</span>
+                    <span class="meta-value">October 2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">EXPIRES ON</span>
+                    <span class="meta-value">Does not expire</span>
+                </div>
+            </div>
+
+            <!-- Partners & Authorities Footer Section -->
+            <div class="certificate-partners-section">
+                <h3 class="partners-heading">Issued & Backed By</h3>
+                <div class="partners-grid">
+                    <!-- Ministry of Education -->
+                    <a href="https://www.education.gov.in" target="_blank" class="partner-card">
+                        <img src="https://www.google.com/s2/favicons?domain=education.gov.in&sz=128" alt="MoE" class="partner-logo">
+                        <span>Ministry of Education</span>
+                    </a>
+
+                    <!-- AICTE (With fallback badge) -->
+                    <a href="https://www.aicte-india.org" target="_blank" class="partner-card">
+                        <img src="aicte-logo.jpg" alt="AICTE" class="partner-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="partner-icon-badge" style="display:none;">AICTE</div>
+                        <span>AICTE India</span>
+                    </a>
+
+                    <!-- Innovation Cell (With fallback badge) -->
+                    <a href="https://mic.gov.in" target="_blank" class="partner-card">
+                        <img src="mic-logo.jpg" alt="MIC" class="partner-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="partner-icon-badge" style="display:none;">MIC</div>
+                        <span>Innovation Cell</span>
+                    </a>
+
+                    <!-- Smart India Hackathon (With fallback badge) -->
+                    <a href="https://www.sih.gov.in" target="_blank" class="partner-card">
+                        <img src="sih-logo.jpg" alt="SIH" class="partner-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="partner-icon-badge" style="display:none;">SIH</div>
+                        <span>Smart India Hackathon</span>
+                    </a>
+
+                    <!-- Suresh Gyan Vihar University -->
+                    <a href="https://www.gyanvihar.org" target="_blank" class="partner-card">
+                        <img src="https://www.gyanvihar.org/favicon.ico" alt="SGVU" class="partner-logo">
+                        <span>SGVU University</span>
+                    </a>
+
+                    <!-- GVIC / Incubation Centre -->
+                    <a href="https://www.gyanvihar.org" target="_blank" class="partner-card">
+                        <img src="https://www.gyanvihar.org/favicon.ico" alt="GVIC" class="partner-logo">
+                        <span>GVIC Incubation</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Fullscreen Modal Preview -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let chosenFormat = 'jpg';
+
+        function toggleDropdown(id) {
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                if (content.id !== id) content.classList.remove('show');
+            });
+            document.getElementById(id).classList.toggle('show');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('.btn-dropdown')) {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.classList.remove('show');
+                });
+            }
+        }
+
+        function selectFormat(format) {
+            chosenFormat = format;
+            document.getElementById('selectedFormatText').innerText = 'Format: ' + format.toUpperCase();
+            document.getElementById('formatDropdown').classList.remove('show');
+        }
+
+        function triggerDownload() {
+            const a = document.createElement('a');
+            if (chosenFormat === 'jpg') {
+                a.href = 'certificate.jpg';
+                a.download = 'SIH_Certificate_Kunal_Sharma.jpg';
+            } else if (chosenFormat === 'pdf') {
+                a.href = 'certificate.pdf';
+                a.download = 'SIH_Certificate_Kunal_Sharma.pdf';
+            }
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function openModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const certImg = document.getElementById('certImage');
+            modal.style.display = "flex";
+            modalImg.src = certImg.src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
